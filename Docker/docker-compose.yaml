@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - myapp
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    depends_on:
+      - db
+    volumes:
+      - wordpress:/var/www/html
+    deploy:  
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          memory: 20M
+
+
+  db:
+    image: mysql
+    restart: always
+    networks:
+      - myapp
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
+    deploy:
+      mode: replicated
+      replicas: 2
+
+networks:
+  myapp:
+    name: myapp
+
+volumes:
+  wordpress:
+  db:
