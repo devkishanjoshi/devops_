@@ -1,0 +1,7 @@
+- hosts: all
+  vars:
+   - x : "pop"
+  tasks: 
+   - template:  
+       src: "hello.txt" 
+       dest: "/home/ec2-user/workspace/use_templates/xxx.txt"
