@@ -13,5 +13,12 @@ ansible-doc package
 
 ansible all -m copy  -a   "src=index.html   dest=/var/www/html "
 
-nsible all  -m  setup
+ansible all  -m  setup
+```
+
+## ansible roles
+
+```
+ansible-galaxy list
+ansible-galaxy init my-role
 ```
