@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset-demo
+  labels:
+    name: webserver
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      name: webserver
+  template:
+    metadata:
+      labels:
+        name: webserver
+    spec:
+      containers:
+      - name: webserver 
+        image: httpd
+        env: 
+        - name: DB_USER
+          valueFrom: 
+            configMapKeyRef:
+              name: config-data
+              key: db_user
+        - name: DB_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: config-data
+              key: db_password
