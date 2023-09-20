@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-data
+data:
+  db_user: 'tom'
+  db_password: 'fbjkaesbnfejabrew'
+  game.properties: |
+    enemy.types=aliens,monsters
+    player.maximum-lives=5 
