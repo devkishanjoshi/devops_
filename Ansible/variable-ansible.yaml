@@ -1,5 +1,0 @@
-- hosts: all
-  tasks: 
-    - copy:
-        content: "Your os name : {{ ansible_distribution }}"
-        dest: "/home/ec2-user/workspace/output.txt"

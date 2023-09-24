@@ -1,4 +1,0 @@
-- name: Enable service httpd, and not touch the state
-  ansible.builtin.service:
-    name: httpd
-    enabled: yes

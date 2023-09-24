@@ -1,8 +1,0 @@
-- hosts: all
-  vars: 
-    - x: krish
-    - y: raj 
-  tasks: 
-    - copy:
-        content: "this is {{ x }} and {{ y }} data"
-        dest: "/root/z.txt"
