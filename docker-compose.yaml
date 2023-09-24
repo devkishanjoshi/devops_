@@ -1,0 +1,7 @@
+version: '3.9'
+
+services:
+  web:
+    image: 'devil1211/devops730:v5'
+    ports:
+      - "8000:8000"
