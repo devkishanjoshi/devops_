@@ -4,7 +4,7 @@ pipeline {
     stages{
         stage('Code'){
             steps{
-                git url: 'https://github.com/devkishanjoshi/devops_.git', branch: 'jenkins', credentialsId: 'github_user_password'
+                git url: 'https://github.com/devkishanjoshi/devops_.git', branch: 'jenkins' 
             }
         }
         stage('Build and Test'){
