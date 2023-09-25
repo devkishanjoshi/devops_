@@ -1,4 +1,5 @@
 - hosts: all
+  become: True
   tasks: 
   - name: Install httpd
     package:
