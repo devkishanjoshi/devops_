@@ -1,9 +1,0 @@
-# Install Webserver
-- name: Install webserver 
-  include_tasks: install.yaml
-
-- name: Start Service
-  include_tasks: service.yaml
-
-- name: Enable Service   
-  include_tasks: enable.yaml
