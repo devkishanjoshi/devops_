@@ -1,8 +1,6 @@
 # devops_
-### Webhook Testing
 
-
-### jenkins: Docker
+jenkins: Docker
 
 ```
 sudo yum install git
@@ -23,3 +21,18 @@ Webhook:
 http://13.235.86.228:8080/github-webhook/
 ```
 Change IP in webhook
+
+
+
+Docker Push Image to Dockerhub: 
+```
+git clone  https://github.com/devkishanjoshi/my-flask-app.git
+cd my-flask-app/
+git checkout master
+docker build  -t myapp:v1    .
+docker image ls
+docker tag  myapp:v1   devil1211/myapp:v1
+docker login
+docker push devil1211/myapp:v1
+```
+
