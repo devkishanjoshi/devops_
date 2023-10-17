@@ -1,0 +1,30 @@
+# Dynamic PV will be provisioned
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: my-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: task-pv-pod
+spec:
+  volumes:
+    - name: my-pv-storage
+      persistentVolumeClaim:
+       claimName: my-pv-claim
+  containers:
+    - name: task-pv-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: my-pv-storage
