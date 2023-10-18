@@ -1,6 +1,7 @@
 ### Applt taints on node with following command: 
 
-# kubectl taint nodes minikube-m01 gpu:NoSchedule
+# kubectl taint nodes minikube-m03 cpu=true:NoSchedule
+# kubectl taint nodes minikube-m02 gpu=true:NoSchedule
 
 #### Create Pod & apply Tollerations
 apiVersion: v1
